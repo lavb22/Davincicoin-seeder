@@ -187,6 +187,12 @@ extern "C" void* ThreadCrawler(void* data) {
       res.fGood = TestNode(res.service,res.nBanTime,res.nClientV,res.strClientV,res.nHeight,getaddr ? &addr : NULL);
     }
     db.ResultMany(ips);
+
+    //DEBUG
+    for (int i=0; i<addr.size(); i++)
+      addr[i].print();
+   //END DEBUG
+
     db.Add(addr);
   } while(1);
   return nullptr;
